@@ -55,23 +55,18 @@ create table Jugador(
    color varchar(255) NULL,
 );
 
-create table InventarioJugador(
-   id varchar(30) FOREIGN KEY (id) REFERENCES Jugador(id) PRIMARY KEY,
-   itemID varchar(30) FOREIGN KEY (itemID) REFERENCES Registro(itemID) PRIMARY KEY,
+create table Tiendita(
+   itemID varchar(30) NOT NULL PRIMARY KEY,
+   descripcion varchar(100) NOT NULL,
+   costo INT,
+   liga_foto_item varbinary
 )
 
 create table Juego(
    id varchar(30) FOREIGN KEY (id) REFERENCES Jugador(id) PRIMARY KEY,
-   ultimoLog DATE PRIMARY KEY,
+   ultimoLog DATE,
    potenciaVolumen float,
-   sonidoActivo boolean
-)
-
-create table Tiendita(
-   itemID varchar(30) NOT NULL PRIMARY KEY,
-   descripcion varchar(100) NOT NULL PRIMARY KEY,
-   costo INT,
-   liga_foto_item varchar(30)
+   sonidoActivo BIT
 )
 
 create table StockItems(
@@ -81,10 +76,15 @@ create table StockItems(
 
 create table Registro(
    id varchar(30) FOREIGN KEY (id) REFERENCES Jugador(id) PRIMARY KEY,
-   itemID varchar(30) FOREIGN KEY (itemID) REFERENCES Tiendita(itemID) PRIMARY KEY,
+   itemID varchar(30) FOREIGN KEY (itemID) REFERENCES Tiendita(itemID),
    fechaCompra DATE,
    horario TIME,
-   pagado boolean
+   pagado BIT
+)
+
+create table InventarioJugador(
+   id varchar(30) FOREIGN KEY (id) REFERENCES Jugador(id) PRIMARY KEY,
+   itemID varchar(30) FOREIGN KEY (itemID) REFERENCES Tiendita(itemID),
 )
 
 --Se agregan datos a tabla de Grupo y a tabla de Proceso
@@ -250,3 +250,11 @@ create procedure SPLoadUserByEmail @email varchar(50)
 as
 select id, nombre, email, estatus, tipo, password from Usuario
 where email = @email;   
+
+-----------------
+create procedure getItems
+as
+SELECT tiendita.descripcion, tiendita.costo, tiendita.liga_foto_item 
+FROM [dbo].[Tiendita] as tiendita 
+JOIN [dbo].[StockItems] as stock on tiendita.itemID = stock.itemID
+WHERE stock.cantidad > 0;
