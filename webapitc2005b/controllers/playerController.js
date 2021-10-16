@@ -1,5 +1,3 @@
-// import express from 'express'
-
 const { sql, poolPromise } = require('../database/db')
 
 class MainController {
@@ -15,6 +13,7 @@ class MainController {
       res.send(error.message)
     }
   }
+
   async getJugador(req, res) {
     try {
       const pool = await poolPromise
@@ -27,6 +26,7 @@ class MainController {
       res.send(error.message)
     }
   }
+  
   async updatePlayer(req, res) {
     try {
       if (req.body.id != null) {

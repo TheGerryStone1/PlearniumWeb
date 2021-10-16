@@ -7,16 +7,16 @@ create TABLE Usuario(
    tipo varchar(30),
    id_grupo int
 );
- 
+
 create TABLE Administrador(
    id varchar(30) FOREIGN KEY (id) REFERENCES Usuario(id) PRIMARY KEY
 );
- 
+
 create TABLE Insignia (
    nombre varchar(30) NOT NULL PRIMARY KEY,
    puntos int
 );
- 
+
 create TABLE MiniJuego(
    nombre varchar(30) NOT NULL PRIMARY KEY,
    puntosMax int,
@@ -25,7 +25,7 @@ create TABLE MiniJuego(
    insignia VARCHAR(30) FOREIGN KEY (insignia) REFERENCES Insignia(nombre),
    id int
 );
- 
+
 create TABLE Empleado(
    id varchar(30) FOREIGN KEY (id) REFERENCES Usuario(id) PRIMARY KEY,
    juegoAsignado varchar(30) FOREIGN KEY (juegoAsignado) REFERENCES MiniJuego(nombre),
@@ -139,10 +139,10 @@ insert into Proceso values (1, 'Proceso Comercial')
 insert into Usuario values (204185, 'ABCdef123!@#', 'Martin', '6789012@ternium.mx', 'Activo', 'Jugador', 1);
 insert into Usuario values (567998, 'Mit!8m&A', 'Julia', '4567890@ternium.mx', 'No Activo', 'Administrador', 2);
 insert into Usuario values (423456, 'Xtoejrn!0', 'Emilia', '7890123@ternium.mx', 'No Activo', 'Admin', 3);
-insert into jugador values ('12', '1', 0, 0, 0)
 insert into Insignia values ('estrella de entregas', 250)
 insert into MiniJuego values ('Terny Busca', 300, 150, 'Generación de entregas', 'estrella de entregas')
-insert into jugador values ('12', 'Terny Busca', 0, 0, 0)
+-- kasjksajk
+insert into jugador values ('1', 'Terny Busca', 1000, 12, 23, 'Terny1', 'red');
 
 ----------------------------------------------
 -----------STORE PROCEDURES-------------------
@@ -191,7 +191,7 @@ end
 --ordenar forma aleatoria
 create procedure SPCargaAcomoda @id_proceso int
 as select * from Acomoda where id_proceso = @id_proceso order by newid()
- 
+
 ---7---
 create Procedure SPLoadPlayer @id varchar(30) 
 as 
@@ -251,7 +251,7 @@ as
 select id, nombre, email, estatus, tipo, password from Usuario
 where email = @email;   
 
------------------
+---15---
 create procedure getItems
 as
 SELECT tiendita.descripcion, tiendita.costo, tiendita.liga_foto_item 

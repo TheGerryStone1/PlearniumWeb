@@ -3,32 +3,18 @@ const juegoRouter = express.Router()
 const axios = require('axios')
 
 juegoRouter.get('',async(req,res)=>{
-    //res.render('usuarios')
-    try{
+    try {
         const webAPI = await
         axios.get(`http://localhost:3001/api/getRanking/`) 
-        //console.log(webAPI.data)
-        console.log(req.user)
-        let players = []
-        let biggest
-        let biggestIndex
-        webAPI.data.forEach((player, i) => {
-            if (!biggest || biggest < player.puntaje) {
-                biggest = player.puntaje
-                biggestIndex = i
-            }
-            player.winner = false
-        });
-        webAPI.data[biggestIndex].winner = true
         res.render('juego',{players: webAPI.data, user: req.user})
-    }catch(err){
+    } catch(err) {
         if(err.response){
             console.log(err.response.data)
             console.log(err.response.status)
             console.log(err.response.headers)
-        }else if(err.request){
+        } else if (err.request) {
             console.log(err.request)
-        }else{
+        } else {
             console.error('Error',err.message)
         }
     }
