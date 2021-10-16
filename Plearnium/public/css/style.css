@@ -665,6 +665,7 @@ input[type="submit"]:hover{
     box-sizing: border-box;
     transition: 0.5s;
     opacity: 0;
+    width: 100%;
 }
 
 .container .box:hover .contenido{
@@ -831,4 +832,21 @@ section button:hover{
 
 .round .data-value{
     color:#fff;
+}
+
+.player-ranking {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.player-ranking p {
+    margin-left: 1rem;
+    margin-bottom: 0;
+}
+
+.crowns {
+    width: 30px;
+    height: 20px;
 }
