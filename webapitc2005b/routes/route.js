@@ -4,6 +4,7 @@ const userController = require('../controllers/userController')
 const playerController = require('../controllers/playerController')
 const acomodaController = require('../controllers/acomodaController')
 const conceptoController = require('../controllers/conceptoController')
+const tienditaController = require ('../controllers/tienditaController')
 
 const router = express.Router();
 router.get('/api/getUsuarios', userController.getUsuarios);
@@ -19,6 +20,8 @@ router.put('/api/updatePlayer/:id', playerController.updatePlayer);
 router.get('/api/cargaAcomoda/:id_proceso', acomodaController.cargaAcomoda);
 router.get('/api/getConceptos', conceptoController.getConceptos);
 router.post('/api/addConcepto', conceptoController.addConcepto);
+router.post('/api/getItems', tienditaController.getItems);
+router.post('/api/addItem', tienditaController.addItem);
 router.get('/test', async (req, res) =>
 {
         try {

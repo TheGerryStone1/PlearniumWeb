@@ -258,3 +258,11 @@ SELECT tiendita.descripcion, tiendita.costo, tiendita.liga_foto_item
 FROM [dbo].[Tiendita] as tiendita 
 JOIN [dbo].[StockItems] as stock on tiendita.itemID = stock.itemID
 WHERE stock.cantidad > 0;
+
+---16---
+create procedure addItem @itemID varchar(30), @descripcion varchar(100), @costo INT, @liga_foto_item varchar, @cantidad INT
+as
+insert into [Tiendita] select
+   @itemID, @descripcion, @costo, CONVERT(varbinary @liga_foto_item)
+insert into [stockItems] values(
+   @itemID, @cantidad)

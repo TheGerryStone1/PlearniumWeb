@@ -59,7 +59,7 @@ class MainController {
           .input('usuarioPassword',sql.VarChar, req.body.password)
           .input('usuarioMail',sql.VarChar, req.body.email)
           .input('estatus',sql.VarChar, 'Activo')
-          .input('tipo',sql.VarChar, 'Usuario')
+          .input('tipo',sql.VarChar, 'Jugador')
           .input('grupoID',sql.Int, 0)
           .query("exec SPCreateUser @id= @usuarioID, @password = @UsuarioPassword, @nombre = @usuarioName, @email = @usuarioMail, @estatus = @estatus, @tipo = @tipo, @id_grupo = @grupoID")
           res.json(result)

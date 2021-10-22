@@ -190,6 +190,28 @@ app.post('/configuracion', async (req, res) =>{
     res.render('addConcepto')
 })
 
+app.get('/inventarioTiendita',(req, res) =>{
+    res.render('inventarioTiendita')
+})
+
+app.post('/addItem', async (req, res) =>{
+    const { itemID, descripcion, costo, liga_foto_item, cantidad  } = req.body
+    await axios.post('http://localhost:3001/api/addItem', { 
+        itemID: itemID,
+        descripcion: descripcion,
+        costo: costo, 
+        liga_foto_item: liga_foto_item,
+        cantidad: cantidad
+        })
+        .then(function (response) {
+        console.log(response.data);
+        res.render('addItemSucceed')
+        }).catch(function (error){
+            console.log(error)
+            res.render('inventarioTiendita')
+        })
+})
+
 function validaAutentificacion(req,res,next){
     if(req.isAuthenticated()){
         return next()

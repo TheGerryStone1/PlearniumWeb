@@ -46,8 +46,18 @@
                         <h3>Ranking</h3>
                         <br>
                         <% players.forEach(function(player, index) { %>
-                        <p><%= i+1 %> . <b><%- player.nickname %></b>   : <%- player.puntaje %> puntos</p>
-                        <%i++%>
+                            <div class="player-ranking">
+                                <%if(index===0) { %> 
+                                    <img class="crowns" src="img/crown-1.png" alt="crown-1">
+                                <%}%>
+                                <%if(index===1) { %> 
+                                    <img class="crowns" src="img/crown-2.png" alt="crown-2"> 
+                                <%}%>
+                                <%if(index===2) { %> 
+                                    <img class="crowns" src="img/crown-3.png" alt="crown-3">
+                                <%}%>
+                                <p><b><%- player.nickname %> : <%- player.puntaje %> puntos</b></p>
+                            </div>
                         <% })%>
                     </div>
                 </div>
