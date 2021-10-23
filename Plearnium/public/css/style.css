@@ -489,7 +489,7 @@ h5{
 .agradecimiento_profes{
     height: 30%;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 100px;
     background-color: #ada7a7;
     background: rgba(255,255,255,0.04);
     box-shadow: -1px 4px 20px 0px rgba(0,0,0.75);
@@ -505,7 +505,7 @@ h5{
 .agrec_profs p{
     margin-right:50px;
     margin-left: 40px;
-    margin-top: 20px;
+    margin-top: 40px;
     color: #fff;
     text-align: center;
     font-size: 10px;
