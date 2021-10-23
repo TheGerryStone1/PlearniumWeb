@@ -131,6 +131,9 @@ app.get('/robyCV', (req,res) =>{
 app.get('/dany_cv', (req,res) =>{
     res.render('dany_cv')
 });
+app.get('/gerardoCV', (req,res) =>{
+    res.render('gerardoCV')
+});
 //tabla de puntos vista admin
 app.get('/admin_tabla_puntos', (req,res) =>{
     res.render('admin_tabla_puntos')

@@ -454,6 +454,38 @@ h5{
     margin-left: 935px;
 }
 
+.creador_gerardo_m{
+    height: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #DA2F2F;
+    background: rgba(255,255,255,0.04);
+    box-shadow: -1px 4px 20px 0px rgba(0,0,0.75);
+}
+
+.col_text_g h1{
+    color: #fff;
+    text-align: right;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.col_text_g p{
+    margin-right:800px;
+    margin-left: 0px;
+    margin-top: 0px;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    line-height: 0px;
+    font-weight: normal;
+}
+
+.button_gerardo{
+    margin-left: 260px;
+    margin-bottom: 10px;
+}
+
 .agradecimiento_profes{
     height: 30%;
     margin-top: 10px;
